@@ -1,8 +1,10 @@
 // src/components/Sidebar.js
 import React from 'react';
+import { Link, useLocation } from "react-router-dom";
 import '../styles/sidebar.css';
 
 function Sidebar() {
+  const location = useLocation();
   return (
     <div className="sidebar">
       <h2 className="logo" style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -22,13 +24,17 @@ function Sidebar() {
       </h2>
       <nav>
         <ul className="sidebar-nav">
-          <li className="active">
-            <span role="img" aria-label="Home" style={{ marginRight: 8 }}>🏠</span>
-            Home
+          <li className={location.pathname === "/" ? "active" : ""}>
+            <Link to="/" style={{ color: "inherit", textDecoration: "none", display: "flex", alignItems: "center" }}>
+              <span role="img" aria-label="Home" style={{ marginRight: 8 }}>🏠</span>
+              Home
+            </Link>
           </li>
-          <li>
-            <span role="img" aria-label="Browse" style={{ marginRight: 8 }}>🔎</span>
-            Browse
+          <li className={location.pathname === "/browse" ? "active" : ""}>
+            <Link to="/browse" style={{ color: "inherit", textDecoration: "none", display: "flex", alignItems: "center" }}>
+              <span role="img" aria-label="Browse" style={{ marginRight: 8 }}>🔎</span>
+              Browse
+            </Link>
           </li>
           <li>
             <span role="img" aria-label="Favourites" style={{ marginRight: 8 }}>❤️</span>
