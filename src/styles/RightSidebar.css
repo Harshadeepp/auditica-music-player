@@ -1,0 +1,94 @@
+.right-sidebar {
+  width: 250px;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow-y: scroll; /* or auto if you want it only when needed */
+  -ms-overflow-style: none;     /* IE 10+ */
+  scrollbar-width: none;        /* Firefox */
+}
+
+/* For Chrome, Safari, Edge */
+.right-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.top-streams {
+  margin-bottom: 2rem;
+}
+
+.top-streams h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.top-streams ul {
+  list-style: none;
+  padding: 0;
+}
+
+.top-streams li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #444;
+}
+
+.top-streams li:last-child {
+  border-bottom: none;
+}
+
+.categories {
+  margin-top: 1rem;
+}
+
+.categories h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  min-height: 100px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  color: white;
+  font-size: 1.2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category h4 {
+  z-index: 1; /* Ensure text is above the overlay */
+  margin: 0;
+  font-size: 1.5rem;
+}

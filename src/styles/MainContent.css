@@ -1,0 +1,204 @@
+/* Use Poppins for everything by default */
+body, .app {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Use Space Grotesk for headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1rem 2rem;
+  overflow-y: auto;
+  -ms-overflow-style: none;     /* IE 10+ */
+  scrollbar-width: none;        /* Firefox */
+}
+
+.main-content::-webkit-scrollbar {
+  display: none;
+}
+
+.featured-banner {
+  border-radius: 20px;
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+  z-index: 1;
+}
+
+.featured-banner .text {
+  position: relative;
+  z-index: 2; /* Ensure text is above the overlay */
+}
+
+.featured-banner .text h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.featured-banner .text p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.featured-banner .text button {
+  margin-top: 1rem;
+  background: #e94057;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.featured-banner .text button:hover {
+  background: #d32f45; /* Darker shade on hover */
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #e94057; /* Accent color for section titles */
+}
+
+.horizontal-scroll,
+.circle-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE 10+ */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.horizontal-scroll::-webkit-scrollbar,
+.circle-scroll::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Edge */
+}
+
+.card, .circle-card {
+  background-color: #282828; /* Darker background for contrast */
+  padding: 1rem;
+  border-radius: 15px;
+  min-width: 180px; /* Increased width for better visibility */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Added shadow for depth */
+  color: #fff; /* Ensure text is visible */
+  box-sizing: border-box;
+}
+
+.card:hover, .circle-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7); /* Enhanced shadow on hover */
+}
+
+.card img, .circle-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.circle-card img {
+  border-radius: 50%;
+}
+
+.recently-played .track {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.recently-played .track img {
+  width: 50px;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
+.recently-played .track .info p {
+  margin: 0;
+  color: #fff; /* Ensure text is visible */
+}
+
+.recently-played .track .info span {
+  color: #bbb; /* Lighter color for additional info */
+}
+
+.card {
+  scroll-snap-align: start;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem; /* Reduce padding on smaller screens */
+  }
+
+  .featured-banner {
+    height: 250px; /* Adjust height for smaller screens */
+    padding: 1rem; /* Reduce padding */
+  }
+
+  .featured-banner .text h1 {
+    font-size: 2rem; /* Smaller font size */
+  }
+
+  .featured-banner .text p {
+    font-size: 1rem; /* Smaller font size */
+  }
+
+  .card, .circle-card {
+    min-width: 150px; /* Adjust card width */
+    padding: 0.5rem; /* Reduce padding */
+  }
+
+  .recently-played .track img {
+    width: 40px; /* Smaller image size */
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-banner {
+    height: 200px; /* Further adjust height */
+  }
+
+  .featured-banner .text h1 {
+    font-size: 1.5rem; /* Further reduce font size */
+  }
+
+  .featured-banner .text p {
+    font-size: 0.9rem; /* Further reduce font size */
+  }
+
+  .card, .circle-card {
+    min-width: 120px; /* Further adjust card width */
+  }
+
+  .recently-played .track img {
+    width: 35px; /* Further reduce image size */
+  }
+}
