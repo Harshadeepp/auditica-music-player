@@ -2,12 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 96px;
   background-color: #222;
-  padding: 0 16px;
+  padding: 0 32px;
   border-top: 1px solid #444;
   font-family: 'Space Grotesk', sans-serif;
   box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  width: 100vw;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.22);
+  border-radius: 10px 10px 0 0;
 }
 
 /* LEFT CONTROLS */
@@ -32,17 +41,21 @@
 }
 
 .footer-icon-btn img {
-  width: 22px;
-  height: 22px;
+  width: 32px;
+  height: 32px;
 }
 
 .footer-icon-btn.play img {
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
 }
 
 .footer-icon-btn:hover {
   transform: scale(1.1);
+}
+
+.footer-icon-btn.active {
+  filter: invert(38%) sepia(92%) saturate(749%) hue-rotate(320deg) brightness(1.1);
 }
 
 /* CENTER INFO */
@@ -69,16 +82,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
+  transition: filter 0.3s;
 }
 
 .song-image {
-  width: 34px;
-  height: 34px;
+  width: 60px;
+  height: 60px;
   border-radius: 4px;
   object-fit: cover;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
 }
 
 .song-info {
@@ -86,6 +102,7 @@
   align-items: center;
   justify-content: center;
   flex: 1;
+  transition: opacity 0.4s, transform 0.4s;
 }
 
 .song-details {
@@ -93,6 +110,7 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  transition: opacity 0.4s, transform 0.4s;
 }
 
 .song-title {
@@ -102,6 +120,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: #fff;
+  transition: color 0.3s;
 }
 
 .song-artist {
@@ -110,6 +129,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s;
 }
 
 /* PROGRESS BAR */
@@ -123,11 +143,20 @@
 
 .progress-bar {
   flex: 1;
-  height: 4px;
+  height: 6px;
   accent-color: #e94057;
   background-color: #333;
   border-radius: 2px;
   outline: none;
+  transition: background 0.3s;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  transition: box-shadow 0.2s;
+}
+
+.progress-bar:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px #e9405744;
 }
 
 .time-label {
@@ -153,17 +182,67 @@
 }
 
 .volume-control img {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   filter: invert(1);
 }
 
 .volume-slider {
-  width: 80px;
+  width: 120px;
   accent-color: #e94057;
   background-color: #333;
-  height: 4px;
+  height: 6px;
   border-radius: 2px;
+}
+
+/* Animations for album art and song info */
+.song-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.song-image-container {
+  transition: filter 0.3s;
+}
+
+.song-info, .song-details {
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.song-title, .song-artist {
+  transition: color 0.3s;
+}
+
+/* Progress bar animation */
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  accent-color: #e94057;
+  background-color: #333;
+  border-radius: 2px;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  transition: box-shadow 0.2s;
+}
+
+.progress-bar:active::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px #e9405744;
+}
+
+.footer-icon-btn:active {
+  transform: scale(0.95);
+  filter: brightness(1.2);
+}
+
+.footer-icon-btn:focus {
+  outline: 2px solid #e94057;
 }
 
 /* Responsive */
@@ -184,6 +263,11 @@
     height: auto;
     gap: 10px;
     padding: 10px 4px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
   }
   .footer-left,
   .footer-right {
@@ -197,7 +281,17 @@
     max-width: none;
     margin: 0;
   }
+  .song-title, .song-artist {
+    font-size: 13px;
+    max-width: 120px;
+  }
+  .song-info-row {
+    gap: 8px;
+  }
   .progress {
-    width: 100%;
+    gap: 4px;
+  }
+  .volume-slider {
+    width: 60px;
   }
 }

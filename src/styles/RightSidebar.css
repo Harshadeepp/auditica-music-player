@@ -8,6 +8,7 @@
   overflow-y: scroll; /* or auto if you want it only when needed */
   -ms-overflow-style: none;     /* IE 10+ */
   scrollbar-width: none;        /* Firefox */
+  padding-bottom: 120px; /* Ensure content is visible above footer */
 }
 
 /* For Chrome, Safari, Edge */

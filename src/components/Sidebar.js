@@ -22,44 +22,57 @@ function Sidebar() {
           auditica
         </span>
       </h2>
-      <nav>
+      <nav style={{ width: '100%' }}>
         <ul className="sidebar-nav">
           <li className={location.pathname === "/" ? "active" : ""}>
-            <Link to="/" style={{ color: "inherit", textDecoration: "none", display: "flex", alignItems: "center" }}>
-              <span role="img" aria-label="Home" style={{ marginRight: 8 }}>🏠</span>
-              Home
+            <Link to="/" style={{ color: "inherit", textDecoration: "none", display: "flex", alignItems: "center", gap: 14 }}>
+              <img src="/assets/home.png" alt="Home" className="sidebar-icon" />
+              <span>Home</span>
             </Link>
           </li>
           <li className={location.pathname === "/browse" ? "active" : ""}>
-            <Link to="/browse" style={{ color: "inherit", textDecoration: "none", display: "flex", alignItems: "center" }}>
-              <span role="img" aria-label="Browse" style={{ marginRight: 8 }}>🔎</span>
-              Browse
+            <Link to="/browse" style={{ color: "inherit", textDecoration: "none", display: "flex", alignItems: "center", gap: 14 }}>
+              <img src="/assets/search.png" alt="Browse" className="sidebar-icon" />
+              <span>Browse</span>
             </Link>
           </li>
           <li>
-            <span role="img" aria-label="Favourites" style={{ marginRight: 8 }}>❤️</span>
-            Favourites
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <img src="/assets/favourite.png" alt="Favourites" className="sidebar-icon" />
+              <span>Favourites</span>
+            </div>
           </li>
           <li>
-            <span role="img" aria-label="Library" style={{ marginRight: 8 }}>🎵</span>
-            Library
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <img src="/assets/library.png" alt="Library" className="sidebar-icon" />
+              <span>Library</span>
+            </div>
           </li>
         </ul>
       </nav>
-      <div className="playlist-section">
+      <div className="sidebar-divider" />
+      <div className="playlist-section" style={{ width: '100%' }}>
         <h4 style={{
           fontFamily: "'Space Grotesk', 'Poppins', sans-serif",
           fontWeight: 700,
-          marginTop: "2rem"
+          marginTop: "2rem",
+          marginBottom: '0.7rem',
+          letterSpacing: '0.5px',
+          color: '#fff',
+          fontSize: '1.1rem'
         }}>Playlists</h4>
         <ul className="playlist-list">
           <li>
-            <span role="img" aria-label="Liked Songs" style={{ marginRight: 8 }}>👍</span>
-            Liked Songs
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <img src="/assets/liked_song.png" alt="Liked Songs" className="sidebar-icon" />
+              <span>Liked Songs</span>
+            </div>
           </li>
           <li>
-            <span role="img" aria-label="Top Hits" style={{ marginRight: 8 }}>⭐</span>
-            Top Hits
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+              <img src="/assets/top_hits.png" alt="Top Hits" className="sidebar-icon" />
+              <span>Top Hits</span>
+            </div>
           </li>
         </ul>
       </div>

@@ -7,11 +7,39 @@
   overflow: hidden;
 }
 
-
 .main-layout {
   display: flex;
   flex: 1;
   overflow: hidden;
+  height: 100%;
+}
+
+.sidebar {
+  min-width: 240px;
+  max-width: 260px;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.right-sidebar {
+  min-width: 250px;
+  max-width: 280px;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 120px; /* Space for footer */
+  background: #181818;
+  border-radius: 18px;
+  margin: 18px 0;
+  box-shadow: 0 2px 16px #0002;
 }
 
 body {
